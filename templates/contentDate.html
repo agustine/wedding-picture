@@ -1,0 +1,22 @@
+<%
+	var weddingDate = _.dateFromISOString(date);
+	var weddingDateStr = _.strftime(weddingDate, '%Y年%m月%d日');
+	var weddingTimeStr = _.strftime(weddingDate, '%H年%M月%S日');
+	var days = Math.round((weddingDate - new Date())/(1000*60*60*24));
+	days = days < 0 ? 0 : days;
+	weddingCountdownStr = ' 距今' + days + '天';
+%>
+
+
+	<p>
+		<%=weddingDateStr %>
+	</p>
+	<p>
+		<%=weddingCountdownStr %>
+	</p>
+	<p>
+		新人：<%=boy_name %>&amp;<%=gril_name %>
+	</p>
+	<p>
+		正式结为夫妻
+	</p>

@@ -1,0 +1,40 @@
+<%
+	var albums = photos;
+	var albumsCount = albums.length;
+	// clone
+	var albumsForDom = _.map(albums, function(album, index){ 
+		album.index = index;
+		return album;
+	});
+	var albumsTemp;
+	if(albumsCount === 2){
+		albumsForDom.reverse();
+	} else if (albumsCount > 2){
+		albumsForDom.unshift(albumsForDom.pop());
+		albumsForDom.unshift(albumsForDom.pop());
+	}
+	albumsTemp = albumsForDom.concat();
+	while(albumsForDom.length < 5){
+		albumsForDom = albumsForDom.concat(albumsTemp);
+	}
+%>
+		<ul class="albums-box">
+			<%
+				_.each(albumsForDom, function(a){ 
+			%>
+			<li>
+				<a href="#photos/<%=a.id %>/0">
+					<img src="<%=a.cover %>" width="118px" height="151px" alt="<%=a.name %>" index="<%=a.index %>"/>
+					<span class="album-name"><%=a.name %></span>
+				</a>
+			</li>
+			<% }); %>
+		</ul>
+		<ul class="albums-index">
+			<% if(albumsCount > 0) { %>
+			<li class="current"></li>
+			<% } %>
+			<% for(var i = 1; i < albumsCount; i++) { %>
+			<li></li>
+			<% } %>
+		</ul>

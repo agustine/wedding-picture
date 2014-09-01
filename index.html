@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="baidu-site-verification" content="eXBOaLtYKo" />
+  <title></title>
+  <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"> -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <!-- <link rel="apple-touch-icon" sizes="114x114" href="images/fav.png" /> -->
+  <link rel="stylesheet" type="text/css" href="src/reset.css">
+  <link rel="stylesheet" type="text/css" href="src/layout.css">
+  <link rel="stylesheet" type="text/css" href="src/main.css?v=1.0.0">
+
+</head>
+<body>
+
+  <div class="view-container" id="view_cover">
+  </div>
+  <div class="view-container" id="view_content">
+  </div>
+  <div class="view-container" id="view_photos">
+  </div>
+  <div class="view-container nobg" id="view_messages">
+  </div>
+  <div class="view-container" id="view_leave_msg">
+  </div>
+  
+  <div class="watch-hint">
+  </div>
+
+  <div style="display:none" id="hidden_script"> 
+    <script type="text/javascript" src="libs/libs.js"></script>
+    <script type="text/javascript" src="temp_data/data.js"></script>
+    <script type="text/javascript" src="src/underscore.date.js"></script>
+    <script type="text/javascript" src="src/templates.js"></script>
+    <script type="text/javascript" src="src/AudioPlayer.js?v=1.0.0"></script>
+    <script type="text/javascript" src="src/app.js?v=1.0.0"></script>
+    <script type="text/javascript">
+      function showView(name){
+        var $views = $('.view-container');
+        var $targetView = $('#view_' + name);
+        $views.hide();
+        $targetView.show();
+      }
+
+
+      // $('#music_switch').on('touchstart',function(){
+      //   var $this = $(this);
+      //   if(a.switch()) {
+      //     $this.addClass('on');
+      //   } else {
+      //     $this.removeClass('on');
+      //   }
+      // });
+    </script>
+  </div>
+
+
+
+</body>
+</html>

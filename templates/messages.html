@@ -1,0 +1,23 @@
+<div class="content-box fullwidth clearfix">
+	<dl class="content-white clearfix">
+		<dt class="message">
+			<span>友人寄语</span>
+			<a href="#msg/<%=id %>"></a>
+		</dt>
+		<%
+		_.each(messages, function(m){
+		%>
+		<dd class="message-info">
+			<img src="<%=m.photo %>" width="80px" height="80px" />
+			<span class="title"><%=m.name %></span>
+			<pre><%=m.content %></pre>
+		</dd>
+		<% }); %>
+	</dl>
+
+	<div class="footer">
+
+	</div>
+</div>
+
+<a href="#content/<%=id%>" class="btn-back"></a>

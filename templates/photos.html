@@ -1,0 +1,40 @@
+<%
+	var photosForDoms = photos.concat();
+	var count = photosForDoms.length;
+	var width = count * 70 + 62;
+	var current = (currentIndex + count + 1) % count;
+	var slice = (currentIndex + count - 1) % count;
+	current = current === 0 ? count : current;
+	photosForDoms = photosForDoms.slice(slice).concat(photosForDoms.slice(0, slice));
+	// photosForDoms.unshift(photosForDoms.pop());
+	
+%>
+	<ul class="photos-list">
+		<% _.each(photosForDoms, function(p, k){ %>
+		<li index="<%=k %>">
+			<div class="photo-box">
+				<img src="<%=p.b %>" alt="" />
+			</div>
+		</li>
+		<% }); %>
+	</ul>
+	<div class="photos-bottom" id="photos_nav">
+		<ul class="photos-nav" style="width: <%=width%>px">
+			<% 
+				_.each(photos, function(photo, index){ 
+					var className = index === currentIndex ? 'current' : '';
+			%>
+			<li class="<%=className %>">
+				<a href="javascript:void(0)" to="#photos/<%=id%>/<%=index%>">
+					<img src="<%=photo.s %>" alt="" width="60px" height="60px" />
+				</a>
+			</li>
+			<% }); %>
+		</ul>
+	</div>
+	<div class="photos-pageinfo">
+		<span class="currentpage">第<%=current %>张</span>
+		<span class="pagecount">共<%=count %>张</span>
+	</div>
+
+	<a href="#content/<%=mainId%>" class="btn-back"></a>

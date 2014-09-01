@@ -1,0 +1,110 @@
+<%
+	var headphoto = 'background:url(' + logo + ') no-repeat; background-size:100% 100%;';
+	var weddingDate = _.dateFromISOString(date);
+	var weddingDateStr = _.strftime(weddingDate, '%Y年%m月%d日');
+	var days = Math.round((weddingDate - new Date())/(1000*60*60*24));
+	days = days < 0 ? 0 : days;
+	weddingDateStr += ' 距今' + days + '天';
+	var video_bak = 'background:url(' + video_cover + ') no-repeat; background-size:100% 100%;';
+	var courses = course;
+%>
+<div class="content-box fullwidth clearfix">
+
+	<div class="content-title">
+		<div class="content-headphoto" style="<%=headphoto %>">
+			<a href="#cover/<%=id%>">
+				<img src="images/logo_keeper.png" width="60px" height="60px" />
+			</a>
+		</div>
+		<span class="content-titleword"><%=title %></span>
+		<!-- <span class="content-weddingdate"><%=weddingDateStr %></span> -->
+		<a href="javascript:void(0);" id="music_switch" class="on"></a>
+	</div>
+
+	<div class="content-albums clearfix">
+
+	</div>
+
+	<div class="content-date clearfix">
+
+	</div>
+
+	<iframe height="240px" width="100%" src="<%=video%>" frameborder=0 allowfullscreen></iframe>
+	<!-- <div class="content-vedio" style="<%=video_bak %>">
+		<a href="<%=video %>" target="_blank" class="content-vedio-play"></a>
+	</div> -->
+<!-- 	<video src="<%=video %>" width="100%" height="240px"></video> -->
+
+	
+
+
+
+	<dl class="content-white clearfix">
+		<dt class="desc">
+			<span>新人介绍</span>
+		</dt>
+		<dd class="couple-info boy">
+			<img src="<%=boy_photo %>" width="80px" height="80px" />
+			<span class="title"><%=boy_name %></span>
+			<pre><%=boy_desc %></pre>
+		</dd>
+		<dd class="couple-info gril">
+			<img src="<%=gril_photo %>" width="80px" height="80px" />
+			<span class="title"><%=gril_name %></span>
+			<pre><%=gril_desc %></pre>
+		</dd>
+	</dl>
+
+	<dl class="content-white clearfix">
+		<dt class="course">
+			<span>感情历程</span>
+		</dt>
+		<%
+			_.each(courses, function(c){ 
+				var date = _.dateFromISOString(c.date);
+				var bcolor = c.color;
+		%>
+		<dd class="course-info">
+			<div class="date" style="background-color:<%=bcolor%>">
+				<span class="day"><%=_.strftime(date, '%b%d') %></span>
+				<span class="year"><%=_.strftime(date, '%Y') %></span>
+			</div>
+			<span class="title"><%=c.title %></span>
+			<pre><%=c.desc %></pre>
+		</dd>
+		<% }); %>
+	</dl>
+
+	<dl class="content-white clearfix">
+		<dt class="promise">
+			<span>爱情宣言</span>
+		</dt>
+		<dd class="promise-info">
+			<pre><%=promise %></pre>
+		</dd>
+	</dl>
+
+	<dl class="content-white clearfix">
+		<dt class="message">
+			<span>友人寄语</span>
+			<a href="#msg/<%=id %>"></a>
+		</dt>
+		<%
+			_.each(messages, function(m){
+		%>
+		<dd class="message-info">
+			<img src="<%=m.photo %>" width="80px" height="80px" />
+			<span class="title"><%=m.name %></span>
+			<pre><%=m.content %></pre>
+		</dd>
+		<% }); %>
+		<dd class="btn-more-message">
+			<a href="#msgs/<%=id %>">更多</a>
+		</dd>
+	</dl>
+
+	<div class="footer">
+
+	</div>
+</div>
+

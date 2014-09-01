@@ -1,0 +1,25 @@
+{
+  "name": "YiCha.MeiTu",
+  "version": "0.1.0",
+  "authors": [
+    "叶晓毅 <agustine103@gmail.com>"
+  ],
+  "description": "test scaffold",
+  "main": "src/main.css",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.0",
+    "backbone": "~1.1.0",
+    "underscore": "~1.5.0",
+    "iscroll": "4.2.5",
+    "animate.css": "~2.1.0",
+    "zepto": "~1.1.0"
+  }
+}
